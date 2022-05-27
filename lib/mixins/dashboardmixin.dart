@@ -49,6 +49,10 @@ mixin DashboardMixin {
 
   "F.Sc (ICS)\n"+
   "Global college system Rawalpindi.";
+  var education_uni_title="BC (SE) 4 years";
+  var education_uni= "Foundation university Rawalpindi campus.";
+  var education_colg_title="F.Sc (ICS)";
+  var education_colg="Global college system Rawalpindi.";
 
   // "Matriculation (Science)\n"+
   // "Noor Foundation model public school Rawalpindi.\n";
@@ -59,7 +63,7 @@ mixin DashboardMixin {
   var img_url = "https://res.cloudinary.com/practicaldev/image/fetch/s--slljVTGZ--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://cdn-images-1.medium.com/max/800/1%2AROuBKDAhiWFl3jIbDvtinw.png";
   var tabBarHeight = 55.0;
   var aboutMeHeight = 640.0;
-  var aboutMeHeight_mobile = 880.0;
+  var aboutMeHeight_mobile = 900.0;
   var objectHeight = 190.0;
   var objectHeight_mobile = 280.0;
 
