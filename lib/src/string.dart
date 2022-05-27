@@ -1,0 +1,1 @@
+const String app_name="Hasan Cv App";
