@@ -20,12 +20,12 @@ class Main_Drawer extends StatelessWidget with DashboardMixin{
         children: [
            Container(
              width: 200,
-             height: 250,
+             height:180,
              child: DrawerHeader(
               decoration: BoxDecoration(
                 color: dart3,
               ),
-              child: Image.asset("assets/images/img_hasan.png",fit: BoxFit.fill,),
+              child: Image.asset("assets/images/img_hasan.png",height: 200,width: 180,fit: BoxFit.contain,),
 
           ),
            ),

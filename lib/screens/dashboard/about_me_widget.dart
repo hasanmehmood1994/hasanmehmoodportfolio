@@ -28,11 +28,14 @@ class AboutMe extends StatelessWidget with DashboardMixin  {
         ),
         //AutoSizeText(AboutMe_titletext,style: TextStyle(color: Colors.white,fontSize: 25),),
         Objective_Widget(),
-        controller.currentScreen.value==CurrentScreen.Desktop?personalInfo_Education_ItemCard_Desktop():
-        Container(
+        if (controller.currentScreen.value==CurrentScreen.Desktop) personalInfo_Education_ItemCard_Desktop() else
+          Container(
+
           margin: EdgeInsets.fromLTRB(20, 10, 10, 10),
           child: Column(
+mainAxisAlignment: MainAxisAlignment.center,
             children: [
+
               SizedBox(
                 height: 10,
               ),
@@ -43,28 +46,32 @@ class AboutMe extends StatelessWidget with DashboardMixin  {
                     letterSpacing: 1,
                     fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis),maxLines: 1,
               ),
-
               SizedBox(
                 height: 40,
               ),
-              Icon_Text_Widget(txt: " $Cnic", icon: Icons.credit_card),
+
+
+              Icon_Text_Widget_Mobile(txt: " $Cnic", icon: Icons.credit_card),
               SizedBox(
                 height: 8,
               ),
-              Icon_Text_Widget(txt: " $Address", icon: Icons.home),
+              Icon_Text_Widget_Mobile(txt: " $Address", icon: Icons.home),
               SizedBox(
                 height: 8,
               ),
-              Icon_Text_Widget(txt: " $Mobile ", icon: Icons.phone),
+              Icon_Text_Widget_Mobile(txt: " $Mobile ", icon: Icons.phone),
               SizedBox(
                 height: 8,
               ),
-              Icon_Text_Widget(txt: " $Email", icon: Icons.mail),
+              Icon_Text_Widget_Mobile(txt: "${Email}", icon: Icons.mail),
+
+
               //  AutoSizeText("$personal_info_text",style: TextStyle(color: Colors.white,fontSize: 16,letterSpacing:1 ),),
             ],
           ),
         ),
-        controller.currentScreen.value==CurrentScreen.Desktop?Text(""): Container(
+        if (controller.currentScreen.value==CurrentScreen.Desktop) Text("") else Container(
+
           margin: EdgeInsets.fromLTRB(20, 10, 10, 10),
           child: Column(
             children: [
@@ -82,7 +89,7 @@ class AboutMe extends StatelessWidget with DashboardMixin  {
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 14,
-                    letterSpacing: 1,overflow: TextOverflow.ellipsis),maxLines: 9,
+                    letterSpacing: 1,overflow: TextOverflow.ellipsis),maxLines: 7,
               ),
               SizedBox(
                 height: 20,
@@ -93,6 +100,19 @@ class AboutMe extends StatelessWidget with DashboardMixin  {
 
       ]),
     );
+  }
+
+   Icon_Text_Widget_Mobile({txt, icon}) {
+    return Row(
+
+      mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+
+              children: [
+
+                Icon(icon,color: Colors.white,),SizedBox(width: 10,),Expanded(child: Text("${txt}",style: TextStyle(color: Colors.white,overflow: TextOverflow.clip,),maxLines: 2,))
+
+              ],);
   }
 
   Widget Objective_Widget() {
@@ -140,7 +160,51 @@ class AboutMe extends StatelessWidget with DashboardMixin  {
       ),
     );
   }
+  Widget Education_Widget_Mobile() {
+    return Container(
+      margin:controller.currentScreen.value==CurrentScreen.Desktop?EdgeInsets.fromLTRB(40, 20, 40, 20): EdgeInsets.fromLTRB(10, 20, 10, 20),
+      width: context.width,
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        color: dart3.withOpacity(1),
+        child: Container(
+          height: controller.currentScreen.value==CurrentScreen.Desktop?objectHeight:objectHeight_mobile,
+          margin: EdgeInsets.all(10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Education",
+                style: TextStyle(
+                    color: orange,
+                    fontSize: 26,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold ,overflow: TextOverflow.ellipsis),maxLines: 1,),
+              SizedBox(
+                height: 20,
+              ),
+              //   AutoSizeText("$about_me_text",style: TextStyle(color: Colors.white,fontSize: 16,letterSpacing:1 ),),
 
+              Text_Objective(txt: education),
+              SizedBox(
+                height:20,
+              ),
+              Text_Objective(txt: about_me_text3),
+              SizedBox(
+                height: 20,
+              ),
+              Text_Objective(txt:"I have ${calculate_work_experience()} Years Experience in flutter application development",),
+              SizedBox(
+                height: 10,
+              ),
+              //  AutoSizeText("$personal_info_text",style: TextStyle(color: Colors.white,fontSize: 16,letterSpacing:1 ),),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
   Widget Text_Objective({txt}) {
     return Text(
               "$txt",
