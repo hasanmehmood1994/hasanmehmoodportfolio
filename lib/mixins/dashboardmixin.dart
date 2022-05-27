@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +8,7 @@ import '../responsive.dart';
 import '../src/custom_colors.dart';
 
 mixin DashboardMixin {
-
+  final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
   var cv_pdf_url="https://firebasestorage.googleapis.com/v0/b/hasanmehmoodportfolio.appspot.com/o/HasanCv2022.pdf?alt=media&token=ffc1ef26-6016-4135-a397-5f80b5e5fd58";
   var asalam_u_alikum_text="Asalamu Alaikum";
   String name_text="I'm Hasan Mehmood";
@@ -111,7 +111,7 @@ var default_project_image="assets/projects/project_supplychain.jpg";
     ),
     padding: EdgeInsets.all(10),
     width: double.infinity,
- child: Column(children: [AutoSizeText("${txt}",style: TextStyle(color:txtclr?? orange,fontSize: 22,fontWeight: FontWeight.bold),),
+ child: Column(children: [Text("${txt}",style: TextStyle(color:txtclr?? orange,fontSize: 22,fontWeight: FontWeight.bold),),
  Spacer(),
  Image.asset(imgurl??default_project_image,width: 100,height: 100,),
    Spacer(),

@@ -25,7 +25,7 @@ getCurrentScreen(context);
                   color: clr ?? Colors.white,
                   fontSize: currentScreen==CurrentScreen.Tablet?15:18,
                   fontWeight: FontWeight.w600),
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.left,
             )));
   }
 }

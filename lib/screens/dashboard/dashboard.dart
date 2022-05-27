@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/context_extensions.dart';
@@ -11,6 +11,7 @@ import '../../mixins/dashboardmixin.dart';
 import '../../responsive.dart';
 import '../../src/custom_colors.dart';
 import 'about_me_widget.dart';
+import 'drawer_widget.dart';
 import 'footerwidget.dart';
 import 'projectwidget.dart';
 import 'skillwidget.dart';
@@ -29,10 +30,18 @@ class _DashboardState extends State<Dashboard> with DashboardMixin ,ResponsiveMi
     super.initState();
     //getCurrentScreen(context);
   }
+
+
   @override
   Widget build(BuildContext context) {
     getCurrentScreen(context);
-    return SafeArea(child: Scaffold(body: mainWidget()));
+    return SafeArea(child: Scaffold(
+key:scaffoldKey ,
+        endDrawer: Drawer(
+
+        child: Main_Drawer(context)
+    ),
+        body: mainWidget()));
   }
 
   Widget mainWidget() {
@@ -194,7 +203,7 @@ class _DashboardState extends State<Dashboard> with DashboardMixin ,ResponsiveMi
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                   color: orange,
-                  child: const AutoSizeText(
+                  child: const Text(
                     "View Cv",
                     style: TextStyle(fontSize: 15, color: Colors.white,overflow: TextOverflow.ellipsis),maxLines: 1,
                   ),
@@ -235,7 +244,12 @@ class _DashboardState extends State<Dashboard> with DashboardMixin ,ResponsiveMi
               fit: BoxFit.fill,
             )
           ]),
-          currentScreen==CurrentScreen.Mobile?Icon(Icons.menu,color: orange,size: 40,):
+          currentScreen==CurrentScreen.Mobile?InkWell(
+              onTap: (){
+                scaffoldKey.currentState!.openEndDrawer();
+
+              },
+              child: Icon(Icons.menu,color: orange,size: 40,)):
           Row(children: [
             TabText(txt: "About Me"),
             TabText(txt: "Skills"),
