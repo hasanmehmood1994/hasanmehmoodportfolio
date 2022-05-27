@@ -92,9 +92,9 @@ class AboutMe extends StatelessWidget with DashboardMixin  {
 
 
                 children: [
-                  Spacer(),
-                  Icon(icon,color: Colors.white,),SizedBox(width: 10,),Expanded(child: Text("${txt}",style: TextStyle(color: Colors.white,overflow: TextOverflow.clip,),maxLines: 1,))
-                 , Spacer(),
+                  Spacer(flex: 1),
+                  Icon(icon,color: Colors.white,),SizedBox(width: 10,),Expanded(child: Text("${txt}",style: TextStyle(color: Colors.white,overflow: TextOverflow.clip,),maxLines: 3,))
+                 , Spacer(flex: 1,),
                 ],),
     );
   }
