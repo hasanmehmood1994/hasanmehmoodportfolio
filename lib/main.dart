@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hasanmemoodportfolio/dependency_injection/responsivebinding.dart';
 
 import 'screens/dashboard/dashboard.dart';
 
@@ -30,7 +31,7 @@ class Test extends StatelessWidget {
         ),
       ),
       title: 'Hasan Mehmood Portfolio',
-
+      initialBinding: ResponsiveBinding(), // here!
       home: Dashboard(),
     );
   }

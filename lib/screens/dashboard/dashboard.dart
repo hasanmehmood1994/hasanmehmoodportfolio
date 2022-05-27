@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/context_extensions.dart';
 import 'package:hasanmemoodportfolio/extensions/customextention.dart';
 
-
+import 'package:get/get.dart';
 import '../../components/tab_text.dart';
 import '../../enums/screen.dart';
 import '../../mixins/dashboardmixin.dart';
-import '../../responsive.dart';
+
+import '../../responsive_controller.dart';
 import '../../src/custom_colors.dart';
 import 'about_me_widget.dart';
 import 'drawer_widget.dart';
@@ -23,18 +24,18 @@ class Dashboard extends StatefulWidget {
   _DashboardState createState() => _DashboardState();
 }
 
-class _DashboardState extends State<Dashboard> with DashboardMixin ,ResponsiveMixin{
+class _DashboardState extends State<Dashboard> with DashboardMixin {
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     //getCurrentScreen(context);
   }
-
+  ResponsiveController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
-    getCurrentScreen(context);
+controller.getCurrentScreen(context);
     return SafeArea(child: Scaffold(
 key:scaffoldKey ,
         endDrawer: Drawer(
@@ -80,7 +81,7 @@ key:scaffoldKey ,
 
   Widget bodyWidget() {
     return Container(
-        height: currentScreen==CurrentScreen.Desktop?bodyHeight:bodyHeight_mobile,
+        height: controller.currentScreen.value==CurrentScreen.Desktop?bodyHeight:bodyHeight_mobile,
         color: dart2,
         child: Column(
 
@@ -115,12 +116,12 @@ key:scaffoldKey ,
   Widget headerWidgetTopMain() {
     return Container(
       margin:
-      currentScreen==CurrentScreen.Desktop?EdgeInsets.fromLTRB(0, 0, 0, 0):EdgeInsets.fromLTRB(10, 0,10, 0),
+      controller.currentScreen.value==CurrentScreen.Desktop?EdgeInsets.fromLTRB(0, 0, 0, 0):EdgeInsets.fromLTRB(10, 0,10, 0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [headerWidgetInformation(),
-          currentScreen==CurrentScreen.Mobile?Text(""):headerWidgetImage()
+          controller.currentScreen.value==CurrentScreen.Mobile?Text(""):headerWidgetImage()
         ],
       ),
     );
@@ -135,7 +136,7 @@ key:scaffoldKey ,
             asalam_u_alikum_text,
             style: const TextStyle(fontSize: 14, color: Colors.white,overflow: TextOverflow.ellipsis),maxLines: 1,
           ),
-          currentScreen==CurrentScreen.Desktop?
+          controller.currentScreen.value==CurrentScreen.Desktop?
           Text(
             name_text,
             style: const TextStyle(
@@ -143,7 +144,7 @@ key:scaffoldKey ,
           ): Text(
             name_text,
             style:  TextStyle(
-                fontSize: currentScreen==CurrentScreen.Mobile?28:35, color: Colors.white, fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis),maxLines: 1,
+                fontSize: controller.currentScreen.value==CurrentScreen.Mobile?28:35, color: Colors.white, fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis),maxLines: 1,
           ),
           const SizedBox(
             height: 20,
@@ -221,7 +222,7 @@ key:scaffoldKey ,
         "assets/images/img_hasan.png",
         fit: BoxFit.fill,
         height:  headerHeight,
-        width: currentScreen==CurrentScreen.Desktop?370:280.0,
+        width: controller.currentScreen.value==CurrentScreen.Desktop?370:280.0,
       ),
     );
   }
@@ -244,7 +245,7 @@ key:scaffoldKey ,
               fit: BoxFit.fill,
             )
           ]),
-          currentScreen==CurrentScreen.Mobile?InkWell(
+          controller.currentScreen.value==CurrentScreen.Mobile?InkWell(
               onTap: (){
                 scaffoldKey.currentState!.openEndDrawer();
 

@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hasanmemoodportfolio/mixins/dashboardmixin.dart';
 
 
 import '../enums/screen.dart';
-import '../responsive.dart';
+
+import '../responsive_controller.dart';
 import '../src/custom_colors.dart';
 
-class TabText extends StatelessWidget  with ResponsiveMixin {
+class TabText extends StatelessWidget  with DashboardMixin {
   var txt, clr, hoverclr;
 
   TabText({this.txt, this.clr, this.hoverclr});
-
+  ResponsiveController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-getCurrentScreen(context);
+
     return Container(
-        margin: currentScreen==CurrentScreen.Tablet?EdgeInsets.fromLTRB(5, 10, 5, 10):EdgeInsets.fromLTRB(10, 10, 10, 10) ,
+        margin: controller.currentScreen.value==CurrentScreen.Tablet?EdgeInsets.fromLTRB(5, 10, 5, 10):EdgeInsets.fromLTRB(10, 10, 10, 10) ,
         child: MaterialButton(
             onPressed: () {},
             hoverColor: this.hoverclr ?? orange,
@@ -23,7 +26,7 @@ getCurrentScreen(context);
               "$txt ",
               style: TextStyle(
                   color: clr ?? Colors.white,
-                  fontSize: currentScreen==CurrentScreen.Tablet?15:18,
+                  fontSize: controller.currentScreen.value==CurrentScreen.Tablet?15:18,
                   fontWeight: FontWeight.w600),
               textAlign: TextAlign.left,
             )));

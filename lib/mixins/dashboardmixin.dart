@@ -1,13 +1,23 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+
+
 
 import 'package:url_launcher/url_launcher.dart';
 
-import '../responsive.dart';
+import '../components/sliderItemwidget.dart';
+import '../enums/screen.dart';
+
+import '../responsive_controller.dart';
 import '../src/custom_colors.dart';
 
 mixin DashboardMixin {
+  //ResponsiveController controller = Get.find();
+
+
   final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
   var cv_pdf_url="https://firebasestorage.googleapis.com/v0/b/hasanmehmoodportfolio.appspot.com/o/HasanCv2022.pdf?alt=media&token=ffc1ef26-6016-4135-a397-5f80b5e5fd58";
   var asalam_u_alikum_text="Asalamu Alaikum";
@@ -101,22 +111,5 @@ var skill_name_list=["Flutter","Firebase","Rest Integration","ANDROID","JAVA","G
 
   }
 
-}
-var default_project_image="assets/projects/project_supplychain.jpg";
- Widget sliderItemWidget({txt,backgroud,txtclr,imgurl}) {
-  return Container(
-    decoration: new BoxDecoration(
-        color: backgroud.withOpacity(0.4)??Colors.white,
-        borderRadius: new BorderRadius.all( Radius.circular(10.0))
-    ),
-    padding: EdgeInsets.all(10),
-    width: double.infinity,
- child: Column(children: [Text("${txt}",style: TextStyle(color:txtclr?? orange,fontSize: 22,fontWeight: FontWeight.bold),),
- Spacer(),
- Image.asset(imgurl??default_project_image,width: 100,height: 100,),
-   Spacer(),
- ]),);
-
-  //projects_description
 
 }

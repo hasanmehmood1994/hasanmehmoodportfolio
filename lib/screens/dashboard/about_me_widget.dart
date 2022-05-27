@@ -2,24 +2,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/context_extensions.dart';
-
-
+import '../../responsive_controller.dart';
+import 'package:get/get.dart';
 import '../../enums/screen.dart';
 import '../../mixins/dashboardmixin.dart';
-import '../../responsive.dart';
+
 import '../../src/custom_colors.dart';
 
-class AboutMe extends StatelessWidget with DashboardMixin ,ResponsiveMixin {
+class AboutMe extends StatelessWidget with DashboardMixin  {
   BuildContext context;
 
   AboutMe(this.context);
+  ResponsiveController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
-    getCurrentScreen(context);
+
     // TODO: implement build
     return Container(
-      height: currentScreen==CurrentScreen.Desktop?aboutMeHeight:aboutMeHeight_mobile,
+      height: controller.currentScreen.value==CurrentScreen.Desktop?aboutMeHeight:aboutMeHeight_mobile,
 
       child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
         SizedBox(
@@ -27,7 +28,7 @@ class AboutMe extends StatelessWidget with DashboardMixin ,ResponsiveMixin {
         ),
         //AutoSizeText(AboutMe_titletext,style: TextStyle(color: Colors.white,fontSize: 25),),
         Objective_Widget(),
-        currentScreen==CurrentScreen.Desktop?personalInfo_Education_ItemCard_Desktop():
+        controller.currentScreen.value==CurrentScreen.Desktop?personalInfo_Education_ItemCard_Desktop():
         Container(
           margin: EdgeInsets.fromLTRB(20, 10, 10, 10),
           child: Column(
@@ -63,7 +64,7 @@ class AboutMe extends StatelessWidget with DashboardMixin ,ResponsiveMixin {
             ],
           ),
         ),
-        currentScreen==CurrentScreen.Desktop?Text(""): Container(
+        controller.currentScreen.value==CurrentScreen.Desktop?Text(""): Container(
           margin: EdgeInsets.fromLTRB(20, 10, 10, 10),
           child: Column(
             children: [
@@ -96,7 +97,7 @@ class AboutMe extends StatelessWidget with DashboardMixin ,ResponsiveMixin {
 
   Widget Objective_Widget() {
     return Container(
-      margin:currentScreen==CurrentScreen.Desktop?EdgeInsets.fromLTRB(40, 20, 40, 20): EdgeInsets.fromLTRB(10, 20, 10, 20),
+      margin:controller.currentScreen.value==CurrentScreen.Desktop?EdgeInsets.fromLTRB(40, 20, 40, 20): EdgeInsets.fromLTRB(10, 20, 10, 20),
       width: context.width,
       child: Card(
         shape: RoundedRectangleBorder(
@@ -104,7 +105,7 @@ class AboutMe extends StatelessWidget with DashboardMixin ,ResponsiveMixin {
         ),
         color: dart3.withOpacity(1),
         child: Container(
-          height: currentScreen==CurrentScreen.Desktop?objectHeight:objectHeight_mobile,
+          height: controller.currentScreen.value==CurrentScreen.Desktop?objectHeight:objectHeight_mobile,
           margin: EdgeInsets.all(10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -144,7 +145,7 @@ class AboutMe extends StatelessWidget with DashboardMixin ,ResponsiveMixin {
     return Text(
               "$txt",
               style: TextStyle(
-                  color: Colors.white, fontSize: currentScreen==CurrentScreen.Desktop?18:14, letterSpacing: 1,overflow: TextOverflow.ellipsis),maxLines: 3,textAlign: TextAlign.start,
+                  color: Colors.white, fontSize: controller.currentScreen.value==CurrentScreen.Desktop?18:14, letterSpacing: 1,overflow: TextOverflow.ellipsis),maxLines: 3,textAlign: TextAlign.start,
             );
   }
 

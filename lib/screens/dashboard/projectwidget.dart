@@ -1,20 +1,24 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/context_extensions.dart';
 
 import '../../enums/screen.dart';
 import '../../mixins/dashboardmixin.dart';
-import '../../responsive.dart';
 
-class Projectwidget extends StatelessWidget with DashboardMixin,ResponsiveMixin{
+
+import '../../responsive_controller.dart';
+
+class Projectwidget extends StatelessWidget with DashboardMixin{
   BuildContext context;
 
 
    Projectwidget(this. context, {Key? key}) : super(key: key);
+  ResponsiveController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
-    getCurrentScreen(context);
+
     return Container(
 
       margin: EdgeInsets.fromLTRB(0, 30, 0, 30),
@@ -24,7 +28,7 @@ class Projectwidget extends StatelessWidget with DashboardMixin,ResponsiveMixin{
       CarouselSlider(
           items: slider_items,
           options: CarouselOptions(
-            viewportFraction: currentScreen==CurrentScreen.Desktop?0.5:0.85,
+            viewportFraction: controller.currentScreen.value==CurrentScreen.Desktop?0.5:0.85,
             initialPage: 0,
             enableInfiniteScroll: true,
             reverse: false,
