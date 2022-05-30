@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:hasanmemoodportfolio/responsive_controller.dart';
 
 import '../../mixins/dashboardmixin.dart';
+import '../../src/MyCustomScrollBehavior.dart';
 
 class SkillWidget extends StatelessWidget with DashboardMixin {
   BuildContext context;
@@ -16,15 +17,18 @@ ResponsiveController controller=Get.find();
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      key: controller.key_skills,
+
       height: 100,
         margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-          itemCount: skill_name_list.length,
-          itemBuilder: (context, index) {
-        return Skill_Item_Card(index: index);
-      }));
+      child:ScrollConfiguration(
+        behavior: MyCustomScrollBehavior(),
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+            itemCount: skill_name_list.length,
+            itemBuilder: (context, index) {
+          return Skill_Item_Card(index: index);
+        }),
+      ));
 
   }
 

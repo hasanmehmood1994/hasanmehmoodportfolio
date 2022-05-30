@@ -51,11 +51,7 @@ key:scaffoldKey ,
 
     return Column(
       children: [
-       InkWell(
-           onTap: (){
-             controller.scrollToWidgettest();
-           },
-           child: tabBarWidget()),
+       tabBarWidget(),
         Expanded(
           child: ListView(
             children: [
@@ -93,21 +89,36 @@ key:scaffoldKey ,
 
 
           children: [
-
+            Container(
+              key: controller.key_about_me,
+              child: Text(
+                "",
+                style: TextStyle(
+                    color: orange,
+                    fontSize: 26,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold ,overflow: TextOverflow.ellipsis),maxLines: 1,),
+            ),
             AboutMe(context),
-            Text("SKILLS",
-              style: TextStyle(
-                  color: orange,
-                  fontSize: 26,
-                  letterSpacing: 1,
-                  fontWeight: FontWeight.bold ,overflow: TextOverflow.ellipsis),maxLines: 1,),
+            Container(
+              key: controller.key_skills,
+              child: Text("SKILLS",
+                style: TextStyle(
+                    color: orange,
+                    fontSize: 26,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold ,overflow: TextOverflow.ellipsis),maxLines: 1,),
+            ),
             SkillWidget(context),
-            Text("PROJECTS",
-              style: TextStyle(
-                  color: orange,
-                  fontSize: 26,
-                  letterSpacing: 1,
-                  fontWeight: FontWeight.bold ,overflow: TextOverflow.ellipsis),maxLines: 1,),
+            Container(
+              key: controller.key_portfolio,
+              child: Text("PROJECTS",
+                style: TextStyle(
+                    color: orange,
+                    fontSize: 26,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold ,overflow: TextOverflow.ellipsis),maxLines: 1,),
+            ),
             Expanded(child: Projectwidget(context)),
 
             Footerwidget(context)
@@ -258,9 +269,9 @@ key:scaffoldKey ,
               },
               child: Icon(Icons.menu,color: orange,size: 40,)):
           Row(children: [
-            TabText(txt: "About Me",sckey: controller.key_about_me,),
-            TabText(txt: "Skills",sckey: controller.key_skills,),
-            TabText(txt: "Portfolio",sckey:controller.key_portfolio,),
+            TabText(txt: "About Me"),
+            TabText(txt: "Skills"),
+            TabText(txt: "Portfolio"),
             TabText(txt: "Flutter Tutorials"),
             TabText(
                 txt: "Hire Me", clr: orange.withOpacity(0.69), hoverclr: dart3),

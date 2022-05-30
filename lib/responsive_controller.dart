@@ -28,7 +28,38 @@ class ResponsiveController extends GetxController{
   GlobalKey key_skills=GlobalKey();
   GlobalKey key_portfolio=GlobalKey();
   GlobalKey key_tutorials=GlobalKey();
-  void scrollToWidgettest() async{
+
+  void scrollToabout_meWidget() async{
+    print("han bhai");
+    final context = key_about_me.currentContext;
+    if (key_about_me.currentContext != null) {
+      print("not");
+      await Scrollable.ensureVisible(
+        context!,
+        duration: const Duration(seconds: 1),
+        curve: Curves.linear,
+      );
+    }
+    else{
+      print("not2");
+    }
+  }
+  void scrollToSkillsWidget() async{
+    print("han bhai");
+    final context = key_skills.currentContext;
+    if (key_skills.currentContext != null) {
+      print("not");
+      await Scrollable.ensureVisible(
+        context!,
+        duration: const Duration(seconds: 1),
+        curve: Curves.linear,
+      );
+    }
+    else{
+      print("not2");
+    }
+  }
+  void scrollToportfolioWidget() async{
     print("han bhai");
     final context = key_portfolio.currentContext;
     if (key_portfolio.currentContext != null) {

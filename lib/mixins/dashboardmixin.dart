@@ -22,7 +22,7 @@ mixin DashboardMixin {
   var cv_pdf_url="https://firebasestorage.googleapis.com/v0/b/hasanmehmoodportfolio.appspot.com/o/HasanCv2022.pdf?alt=media&token=ffc1ef26-6016-4135-a397-5f80b5e5fd58";
   var asalam_u_alikum_text="Asalamu Alaikum";
   String name_text="I'm Hasan Mehmood";
-  String platform_name="Android |  Ios | WeB | Desktop | Mac ";
+  String platform_name="Android |  Ios | Web | Desktop | Mac ";
   String development_name="Flutter Developer";
   String  city_name="Rawalpindi / Islamabad";
   String  country_name="Pakistan";

@@ -22,21 +22,26 @@ class TabText extends StatelessWidget  with DashboardMixin {
         margin: controller.currentScreen.value==CurrentScreen.Tablet?EdgeInsets.fromLTRB(5, 10, 5, 10):EdgeInsets.fromLTRB(10, 10, 10, 10) ,
         child: MaterialButton(
             onPressed: () {
-            //  controller.scrollToWidgettest();
-             //  if(txt.toString().contains("Skills"))
-             //    {
-             //      scrollToWidget(this.sckey);
-             //      print("hanyr");
-             //    }
-             //  print("material ha");
-              if(this.sckey==null)
-                {
-                  print("null");
-                }
-              else{
-                print("else");
-               controller.scrollToWidget(this.key);
-              }
+
+          if(txt.toString().contains("About Me"))
+            {
+              controller.scrollToabout_meWidget();
+            }
+          else   if(txt.toString().contains("Skills")){
+            controller.scrollToSkillsWidget();
+          }
+          else   if(txt.toString().contains("Portfolio")){
+            controller.scrollToportfolioWidget();
+          }
+          else   if(txt.toString().contains("Flutter Tutorials")){
+
+          }
+          else   if(txt.toString().contains("Hire Me")){
+
+          }
+          else{
+
+          }
 
             },
             hoverColor: this.hoverclr ?? orange,
@@ -48,5 +53,28 @@ class TabText extends StatelessWidget  with DashboardMixin {
                   fontWeight: FontWeight.w600),
               textAlign: TextAlign.left,
             )));
+  }
+}
+
+class DrawerText extends StatelessWidget  with DashboardMixin {
+  var txt, clr, hoverclr,sckey;
+
+  DrawerText({this.txt, this.clr, this.hoverclr,this.sckey});
+  ResponsiveController controller = Get.find();
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+
+    return Container(
+
+        margin: controller.currentScreen.value==CurrentScreen.Tablet?EdgeInsets.fromLTRB(5, 10, 5, 10):EdgeInsets.fromLTRB(10, 10, 10, 10) ,
+        child: Text(
+          "$txt ",
+          style: TextStyle(
+              color: clr ?? Colors.white,
+              fontSize: controller.currentScreen.value==CurrentScreen.Tablet?15:18,
+              fontWeight: FontWeight.w600),
+          textAlign: TextAlign.left,
+        ));
   }
 }

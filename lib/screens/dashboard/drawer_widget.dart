@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:hasanmemoodportfolio/mixins/dashboardmixin.dart';
 import 'package:hasanmemoodportfolio/responsive_controller.dart';
 import 'package:hasanmemoodportfolio/src/custom_colors.dart';
+import '../../components/custom_dialogs.dart';
 import '../../components/tab_text.dart';
 class Main_Drawer extends StatelessWidget with DashboardMixin{
   BuildContext context;
@@ -32,38 +33,39 @@ class Main_Drawer extends StatelessWidget with DashboardMixin{
           ),
            ),
           ListTile(
-            title: TabText(txt: "About Me",sckey: controller.key_about_me,),
+            title: DrawerText(txt: "About Me"),
             onTap: () {
-              // Update the state of the app.
-              // ...
+        controller.scrollToabout_meWidget();
+        Get.back();
             },
           ),
           ListTile(
-            title: TabText(txt: "Skills",sckey: controller.key_skills,),
+            title: DrawerText(txt: "Skills"),
             onTap: () {
-              // Update the state of the app.
-              // ...
+       controller.scrollToSkillsWidget();
+       Get.back();
             },
           ),
           ListTile(
-            title: TabText(txt: "Portfolio",sckey: controller.key_about_me,),
+            title: DrawerText(txt: "Portfolio"),
             onTap: () {
-              // Update the state of the app.
-              // ...
+              controller.scrollToportfolioWidget();
+              Get.back();
             },
           ),
           ListTile(
-            title: TabText(txt: "Flutter Tutorials"),
+            title: DrawerText(txt: "Flutter Snippets"),
             onTap: () {
-              // Update the state of the app.
-              // ...
+
+              Get.back();
             },
           ),
           ListTile(
-            title: TabText(txt: "Skills"),
+            title: DrawerText(txt: "Hire Me"),
             onTap: () {
-              // Update the state of the app.
-              // ...
+              Get.back();
+              hireMe_dialog(context);
+
             },
           ),
         ],
