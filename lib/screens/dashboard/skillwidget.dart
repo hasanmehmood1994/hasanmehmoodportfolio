@@ -6,13 +6,15 @@ import '../../mixins/dashboardmixin.dart';
 
 class SkillWidget extends StatelessWidget with DashboardMixin {
   BuildContext context;
+  GlobalKey<State<StatefulWidget>> key_skills;
 
-  SkillWidget(this.context);
+  SkillWidget(this.context,this.key_skills );
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
+      key:this.key_skills ,
       height: 100,
         margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
       child: ListView.builder(

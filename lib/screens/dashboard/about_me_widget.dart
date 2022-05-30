@@ -38,8 +38,8 @@ class AboutMe extends StatelessWidget with DashboardMixin  {
 
   Widget personalInfo_ItemCard_Mobile() {
     return Container(
-
-
+      alignment: Alignment.center,
+width: controller.currentScreen.value==CurrentScreen.Tablet?context.width/2:context.width,
         margin: EdgeInsets.fromLTRB(20, 10, 10, 10),
         child: Column(
 
@@ -59,8 +59,6 @@ class AboutMe extends StatelessWidget with DashboardMixin  {
             SizedBox(
               height: 40,
             ),
-
-
             Icon_Text_Widget_Mobile(txt: " $Cnic", icon: Icons.credit_card),
             SizedBox(
               height: 8,
@@ -82,21 +80,22 @@ class AboutMe extends StatelessWidget with DashboardMixin  {
       );
   }
 
-   Icon_Text_Widget_Mobile({txt, icon}) {
-    return Container(
-      alignment: Alignment.center,
+   Widget Icon_Text_Widget_Mobile({txt, icon}) {
+    return Row(
 
 
-      child: Row(
+crossAxisAlignment: CrossAxisAlignment.start,
 
 
+              children: [
 
-                children: [
-                  Spacer(flex: 1),
-                  Icon(icon,color: Colors.white,),SizedBox(width: 10,),Expanded(child: Text("${txt}",style: TextStyle(color: Colors.white,overflow: TextOverflow.clip,),maxLines: 3,))
-                 , Spacer(flex: 1,),
-                ],),
-    );
+                Expanded(
+                    flex: 1,
+                    child: Icon(icon,color: Colors.white,)),SizedBox(width: 10,),Expanded(
+                    flex: 9,
+                    child: Text("${txt}",style: TextStyle(color: Colors.white,overflow: TextOverflow.clip,),maxLines: 3,))
+
+              ],);
   }
 
   Widget Objective_Widget() {

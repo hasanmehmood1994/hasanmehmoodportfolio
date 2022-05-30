@@ -95,7 +95,7 @@ key:scaffoldKey ,
                   fontSize: 26,
                   letterSpacing: 1,
                   fontWeight: FontWeight.bold ,overflow: TextOverflow.ellipsis),maxLines: 1,),
-            SkillWidget(context),
+            SkillWidget(context,key_skills),
             Text("PROJECTS",
               style: TextStyle(
                   color: orange,
@@ -263,6 +263,8 @@ key:scaffoldKey ,
       ),
     );
   }
+
+
 }
 
 

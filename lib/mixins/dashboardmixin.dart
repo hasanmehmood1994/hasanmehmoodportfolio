@@ -114,6 +114,16 @@ var skill_name_list=["Flutter","Firebase","Rest Integration","ANDROID","JAVA","G
 
 
   }
-
+  void scrollToWidget(key) async{
+    print("han bhai");
+    final context = key.currentContext;
+    if (key_skills.currentContext != null) {
+      await Scrollable.ensureVisible(
+        context!,
+        duration: const Duration(seconds: 1),
+        curve: Curves.linear,
+      );
+    }
+  }
 
 }
