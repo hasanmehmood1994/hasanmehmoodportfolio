@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hasanmemoodportfolio/mixins/dashboardmixin.dart';
+import 'package:hasanmemoodportfolio/responsive_controller.dart';
 import 'package:hasanmemoodportfolio/src/custom_colors.dart';
 import '../../components/tab_text.dart';
 class Main_Drawer extends StatelessWidget with DashboardMixin{
   BuildContext context;
    Main_Drawer(this. context, {Key? key}) : super(key: key);
-
+  ResponsiveController controller=Get.find();
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -30,21 +32,21 @@ class Main_Drawer extends StatelessWidget with DashboardMixin{
           ),
            ),
           ListTile(
-            title: TabText(txt: "About Me"),
+            title: TabText(txt: "About Me",sckey: controller.key_about_me,),
             onTap: () {
               // Update the state of the app.
               // ...
             },
           ),
           ListTile(
-            title: TabText(txt: "Skills"),
+            title: TabText(txt: "Skills",sckey: controller.key_skills,),
             onTap: () {
               // Update the state of the app.
               // ...
             },
           ),
           ListTile(
-            title: TabText(txt: "Portfolio"),
+            title: TabText(txt: "Portfolio",sckey: controller.key_about_me,),
             onTap: () {
               // Update the state of the app.
               // ...

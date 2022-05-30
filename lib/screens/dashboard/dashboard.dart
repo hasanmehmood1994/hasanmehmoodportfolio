@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/context_extensions.dart';
+import 'package:hasanmemoodportfolio/controllers/dashboardcontroller.dart';
 import 'package:hasanmemoodportfolio/extensions/customextention.dart';
 
 import 'package:get/get.dart';
@@ -25,6 +26,7 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> with DashboardMixin {
+
   @override
   void initState() {
     // TODO: implement initState
@@ -49,7 +51,11 @@ key:scaffoldKey ,
 
     return Column(
       children: [
-       tabBarWidget(),
+       InkWell(
+           onTap: (){
+             controller.scrollToWidgettest();
+           },
+           child: tabBarWidget()),
         Expanded(
           child: ListView(
             children: [
@@ -95,7 +101,7 @@ key:scaffoldKey ,
                   fontSize: 26,
                   letterSpacing: 1,
                   fontWeight: FontWeight.bold ,overflow: TextOverflow.ellipsis),maxLines: 1,),
-            SkillWidget(context,key_skills),
+            SkillWidget(context),
             Text("PROJECTS",
               style: TextStyle(
                   color: orange,
@@ -252,9 +258,9 @@ key:scaffoldKey ,
               },
               child: Icon(Icons.menu,color: orange,size: 40,)):
           Row(children: [
-            TabText(txt: "About Me"),
-            TabText(txt: "Skills"),
-            TabText(txt: "Portfolio"),
+            TabText(txt: "About Me",sckey: controller.key_about_me,),
+            TabText(txt: "Skills",sckey: controller.key_skills,),
+            TabText(txt: "Portfolio",sckey:controller.key_portfolio,),
             TabText(txt: "Flutter Tutorials"),
             TabText(
                 txt: "Hire Me", clr: orange.withOpacity(0.69), hoverclr: dart3),

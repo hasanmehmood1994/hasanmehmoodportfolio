@@ -9,26 +9,33 @@ import '../responsive_controller.dart';
 import '../src/custom_colors.dart';
 
 class TabText extends StatelessWidget  with DashboardMixin {
-  var txt, clr, hoverclr,key;
+  var txt, clr, hoverclr,sckey;
 
-  TabText({this.txt, this.clr, this.hoverclr,this.key});
+  TabText({this.txt, this.clr, this.hoverclr,this.sckey});
   ResponsiveController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
 
     return Container(
+
         margin: controller.currentScreen.value==CurrentScreen.Tablet?EdgeInsets.fromLTRB(5, 10, 5, 10):EdgeInsets.fromLTRB(10, 10, 10, 10) ,
         child: MaterialButton(
             onPressed: () {
-              print("material ha");
-              if(this.key==null)
+            //  controller.scrollToWidgettest();
+             //  if(txt.toString().contains("Skills"))
+             //    {
+             //      scrollToWidget(this.sckey);
+             //      print("hanyr");
+             //    }
+             //  print("material ha");
+              if(this.sckey==null)
                 {
                   print("null");
                 }
               else{
                 print("else");
-                scrollToWidget(this.key);
+               controller.scrollToWidget(this.key);
               }
 
             },

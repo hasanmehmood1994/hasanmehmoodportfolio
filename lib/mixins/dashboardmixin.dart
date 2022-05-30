@@ -94,10 +94,7 @@ var skill_name_list=["Flutter","Firebase","Rest Integration","ANDROID","JAVA","G
 
 
 
-  GlobalKey key_about_me=GlobalKey();
-  GlobalKey key_skills=GlobalKey();
-  GlobalKey key_portfolio=GlobalKey();
-  GlobalKey key_tutorials=GlobalKey();
+
   launchCvFromUrl() async {
     if (!await launchUrl(Uri.parse(cv_pdf_url))) throw 'Could not launch $cv_pdf_url';
   }
@@ -114,16 +111,6 @@ var skill_name_list=["Flutter","Firebase","Rest Integration","ANDROID","JAVA","G
 
 
   }
-  void scrollToWidget(key) async{
-    print("han bhai");
-    final context = key.currentContext;
-    if (key_skills.currentContext != null) {
-      await Scrollable.ensureVisible(
-        context!,
-        duration: const Duration(seconds: 1),
-        curve: Curves.linear,
-      );
-    }
-  }
+
 
 }
