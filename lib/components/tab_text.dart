@@ -7,6 +7,7 @@ import '../enums/screen.dart';
 
 import '../responsive_controller.dart';
 import '../src/custom_colors.dart';
+import 'custom_dialogs.dart';
 
 class TabText extends StatelessWidget  with DashboardMixin {
   var txt, clr, hoverclr,sckey;
@@ -33,11 +34,11 @@ class TabText extends StatelessWidget  with DashboardMixin {
           else   if(txt.toString().contains("Portfolio")){
             controller.scrollToportfolioWidget();
           }
-          else   if(txt.toString().contains("Flutter Tutorials")){
-
+          else   if(txt.toString().contains("Flutter Snippets")){
+            Tutorials_dialog(context);
           }
           else   if(txt.toString().contains("Hire Me")){
-
+            hireMe_dialog(context);
           }
           else{
 

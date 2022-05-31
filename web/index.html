@@ -31,6 +31,55 @@
 
   <title>hasanmemoodportfolio</title>
   <link rel="manifest" href="manifest.json">
+  <style>
+        body {
+            background-color: rgba(40, 42,58, 100);
+        }
+
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .loader {
+            border: 10px solid #F87D58;
+            border-radius: 50%;
+            border: 10px solid;
+            border-top: 10px solid #F87D58;
+            border-right: 10px solid rgba(40, 42,58, 100);
+            border-bottom: 10px solid #97D9CF;
+            border-left: 10px solid rgba(40, 42,58, 100);
+            width: 70px;
+            height: 70px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 <body>
   <!-- This script installs service_worker.js to provide PWA functionality to

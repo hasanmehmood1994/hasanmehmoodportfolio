@@ -56,7 +56,7 @@ class Main_Drawer extends StatelessWidget with DashboardMixin{
           ListTile(
             title: DrawerText(txt: "Flutter Snippets"),
             onTap: () {
-
+              Tutorials_dialog(context);
               Get.back();
             },
           ),
