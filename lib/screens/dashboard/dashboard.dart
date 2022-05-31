@@ -272,7 +272,7 @@ key:scaffoldKey ,
             TabText(txt: "About Me"),
             TabText(txt: "Skills"),
             TabText(txt: "Portfolio"),
-            TabText(txt: "Flutter Tutorials"),
+            TabText(txt: "Flutter Snippets"),
             TabText(
                 txt: "Hire Me", clr: orange.withOpacity(0.69), hoverclr: dart3),
           ]),
