@@ -113,7 +113,7 @@ crossAxisAlignment: CrossAxisAlignment.start,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-           Text("OBJECTIVE",
+           Text("ABOUT ME",
                   style: TextStyle(
                       color: orange,
                       fontSize: 26,
