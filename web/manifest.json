@@ -1,11 +1,11 @@
 {
-    "name": "Hasan Mehmood Portfolio",
-    "short_name": "Portfolio",
+    "name": "hasanmehmoodportfolio",
+    "short_name": "hasanmehmoodportfolio",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#282A3A",
-    "theme_color": "#282A3A",
-    "description": "Hasan Mehmood Portfolio .",
+    "background_color": "#0175C2",
+    "theme_color": "#0175C2",
+    "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
