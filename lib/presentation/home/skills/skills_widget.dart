@@ -74,8 +74,7 @@ class _SkillsListWidgetState extends State<SkillsListWidget> {
             itemCount: state.skillModel.length,scrollDirection: Axis.horizontal,
                 itemBuilder: (context,index){
               return Container(
-
-                  margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  margin: EdgeInsets.fromLTRB(20, 4, 20, 4),
                   child: SkillCardWidget(title: state.skillModel[index].title,color: state.skillModel[index].color,skillLevel: state.skillModel[index].skill,image: state.skillModel[index].image));
             }
 
@@ -125,7 +124,10 @@ class SkillCardWidget extends StatelessWidget {
             color: color,thickness: 0.8,),
         ),
         Spacer(),
-        Image.network(image),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.network(image),
+        ),
         Spacer(),
 
         Container(

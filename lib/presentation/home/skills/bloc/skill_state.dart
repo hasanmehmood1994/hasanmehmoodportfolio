@@ -1,5 +1,6 @@
 part of 'skill_cubit.dart';
  class SkillState extends Equatable {
+
    List<SkillsModel> skillModel=[];
 
 

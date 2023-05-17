@@ -1,6 +1,9 @@
 
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hasanmemoodportfolio/presentation/home/about_me_widget.dart';
+import 'package:hasanmemoodportfolio/presentation/home/bloc/home_cubit.dart';
 import 'package:hasanmemoodportfolio/presentation/home/contact_me_widget.dart';
 import 'package:hasanmemoodportfolio/presentation/home/education_widget.dart';
 import 'package:hasanmemoodportfolio/presentation/home/footer_widget.dart';
@@ -26,14 +29,19 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+
+    return BlocProvider(
+  create: (context) => HomeCubit()..getNoticeMsg(),
+  child: Scaffold(
       endDrawer: appDrawer(context),
       key: scaffoldKey,
         backgroundColor: Colors.white,
         body: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
           return bodyWidget(context: context, width: constraints.maxWidth);
-        }));
+        })),
+);
+
   }
 
 
@@ -66,7 +74,11 @@ class HomeScreen extends StatelessWidget {
             ),
             SkillsListWidget(key: keySkills,),
             const SizedBox(
-              height: 30,
+              height: 20,
+            ),
+            const NoticeTextWidget(),
+            const SizedBox(
+              height: 20,
             ),
              FooterContainer(width),
 
@@ -194,6 +206,24 @@ Widget appDrawer(BuildContext context){
       ),
     );
 }
+}
+
+class NoticeTextWidget extends StatelessWidget {
+  const NoticeTextWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<HomeCubit, HomeState>(
+  builder: (context, state) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Text(state.noticeText,style: TextStyle(fontSize: 12,color: AppColor.flutterDark),),
+    );
+  },
+);
+  }
 }
 
 
