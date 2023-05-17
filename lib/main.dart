@@ -7,13 +7,15 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:hasanmemoodportfolio/presentation/home/home.dart';
 import 'package:hasanmemoodportfolio/presentation/home/skills/bloc/skill_cubit.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
     // Replace with actual values
-    options: FirebaseOptions(
+    options: const FirebaseOptions(
         apiKey: "AIzaSyBBbfzh2Pqv67VIbI6G3QHMyv98H5xdrYg",
         authDomain: "hasanmehmoodportfolio.firebaseapp.com",
         databaseURL: "https://hasanmehmoodportfolio-default-rtdb.asia-southeast1.firebasedatabase.app",
@@ -24,12 +26,11 @@ Future<void> main() async {
         measurementId: "G-VPV2WVG242"
     ),
   );
+  setPathUrlStrategy();
   runApp(
     BlocProvider(
       create: (context) =>SkillCubit(),
-      child: MaterialApp(
-        home: Test(),
-      ),
+      child: const App(),
     ),
   );
 
@@ -37,13 +38,12 @@ Future<void> main() async {
 
 
 
-class Test extends StatelessWidget {
-   const Test({Key? key}) : super(key: key);
+class App extends StatelessWidget {
+   const App({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
-
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: GoogleFonts.dmSansTextTheme(

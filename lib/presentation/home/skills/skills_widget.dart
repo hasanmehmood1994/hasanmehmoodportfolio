@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hasanmemoodportfolio/presentation/home/skills/bloc/skill_cubit.dart';
 import 'package:hasanmemoodportfolio/model/skill_model.dart';
+import 'package:hasanmemoodportfolio/src/list_custom_behavior.dart';
 
 class SkillsListWidget extends StatefulWidget {
   const SkillsListWidget({Key? key}) : super(key: key);
@@ -13,6 +14,7 @@ class SkillsListWidget extends StatefulWidget {
 
 class _SkillsListWidgetState extends State<SkillsListWidget> {
    List<SkillsModel> skillsModelList= [];
+   final ScrollController scrollController = ScrollController();
 
 
 
@@ -62,19 +64,25 @@ class _SkillsListWidgetState extends State<SkillsListWidget> {
           height: 300,
           child: BlocBuilder<SkillCubit, SkillState>(
   builder: (context, state) {
-        return ListView.builder(
-            shrinkWrap: true,
-          itemCount: state.skillModel.length,scrollDirection: Axis.horizontal,
-              itemBuilder: (context,index){
-            return Container(
-
-                margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: SkillCardWidget(title: state.skillModel[index].title,color: state.skillModel[index].color,skillLevel: state.skillModel[index].skill,image: state.skillModel[index].image));
-          }
+        return ScrollConfiguration(
+          behavior: ListCustomScrollBehavior(),
+          child: ListView.builder(
 
 
+              controller: scrollController,
+              shrinkWrap: true,
+            itemCount: state.skillModel.length,scrollDirection: Axis.horizontal,
+                itemBuilder: (context,index){
+              return Container(
 
-          );
+                  margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  child: SkillCardWidget(title: state.skillModel[index].title,color: state.skillModel[index].color,skillLevel: state.skillModel[index].skill,image: state.skillModel[index].image));
+            }
+
+
+
+            ),
+        );
   },
 ),
         ),
