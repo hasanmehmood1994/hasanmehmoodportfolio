@@ -6,7 +6,8 @@ class AppUrls{
   static const String urlContactImage="https://lh3.googleusercontent.com/drive-viewer/AFGJ81ru_MKiXNrknRcz9f9kg4GqOYoa9K06kudT6387jxZNdRVzsKn4-4swFflu3jpOLHbrY9lVb8dPiy3ODe3br-XvYQQtCg=s1600";
   static const String urlProjectImage="https://lh3.googleusercontent.com/drive-viewer/AFGJ81qWSuH66tIj3das3u4ifqyrczd7PV3l4oK9QJaxzoiIL8htWxf45lcgaKjV7litUxTc-318fnbyfVQzyJRblwAYoa6dKg=s1600";
 
-  static const String urlCv='https://drive.google.com/file/d/1cS02eEmsdngBvgDpAZNyv49hZwDnOSra/view?usp=sharing';
+  //static const String urlCv='https://drive.google.com/file/d/1cS02eEmsdngBvgDpAZNyv49hZwDnOSra/view?usp=sharing';
+  static const String urlCv='https://drive.google.com/file/d/1pn3YznZefN7rTi3nAXsqnyEBWjhH-FH4/view?usp=sharing';
 
   static const String urlLinkedIn='https://www.linkedin.com/in/hasan-mehmood-90331a207/';
 

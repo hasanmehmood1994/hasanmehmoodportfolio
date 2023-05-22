@@ -30,17 +30,19 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return BlocProvider(
+    return SafeArea(
+      child: BlocProvider(
   create: (context) => HomeCubit()..getNoticeMsg(),
   child: Scaffold(
-      endDrawer: appDrawer(context),
-      key: scaffoldKey,
-        backgroundColor: Colors.white,
-        body: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
-          return bodyWidget(context: context, width: constraints.maxWidth);
-        })),
-);
+        endDrawer: appDrawer(context),
+        key: scaffoldKey,
+          backgroundColor: Colors.white,
+          body: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+            return bodyWidget(context: context, width: constraints.maxWidth);
+          })),
+),
+    );
 
   }
 
