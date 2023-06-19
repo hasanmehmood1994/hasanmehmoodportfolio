@@ -1,8 +1,8 @@
 class AppUrls{
 
-  static const String urlAboutImage="https://firebasestorage.googleapis.com/v0/b/hasanmehmoodportfolio.appspot.com/o/im1.png?alt=media&token=cde58ef3-5eb7-4932-9da0-6da3f4fe9476";
+  static const String urlMainImage="https://firebasestorage.googleapis.com/v0/b/hasanmehmoodportfolio.appspot.com/o/im1.png?alt=media&token=cde58ef3-5eb7-4932-9da0-6da3f4fe9476";
 
-  static const String urlMainImage="https://firebasestorage.googleapis.com/v0/b/hasanmehmoodportfolio.appspot.com/o/imh.png?alt=media&token=0faab93d-63f1-44f0-b474-d1b7d79689ef";
+  static const String urlAboutImage ="https://firebasestorage.googleapis.com/v0/b/hasanmehmoodportfolio.appspot.com/o/imh.png?alt=media&token=0faab93d-63f1-44f0-b474-d1b7d79689ef";
 
   static const String urlBgImage="https://firebasestorage.googleapis.com/v0/b/hasanmehmoodportfolio.appspot.com/o/bg.png?alt=media&token=90b7da56-3cb1-4443-9a71-8da8c985f4da";
 
